@@ -2,36 +2,42 @@
 #      Main Configs       #
 # ----------------------- #
 
-url: http://sybil63.github.com
-title: Sybil's Blog
-subtitle: Now is only the beginning~
-author: Sybil
+url: http://shuxiong.github.com
+title: shuxiong's Blog
+#subtitle: Now is only the beginning~
+author: shuxiong 
 
 #The syntax to highlight code
 #monokai, perldoc, default, native
 syntax: monokai
-paginate: 1 //the number of post per page
+paginate: 1 #//the number of post per page
 
 # ----------------------- #
 #    Jekyll & Plugins     #
 # ----------------------- #
 
 permalink: pretty
-markdown: rdiscount
+#markdown: rdiscount
+#markdown: kramdown
+#kramdown:
+#    input: GFM
+markdown: redcarpet
+redcarpet:
+    extensions: [tables]
 pygments: true # default python pygments have been replaced by pygments.rb
 
 # ----------------------- #
 #   3rd Party Settings    #
 # ----------------------- #
 # Github repositories
-github_user: sybil63
+github_user: shuxiong 
 github_repo_count: 0
 github_show_profile_link: true
 github_skip_forks: true
 
 # Disqus Comments
-disqus_short_name: sybil63
+disqus_short_name: shuxiong 
 disqus_show_comment_count: true
 
 # Google Analytics
-google_analytics_tracking_id: UA-30241835-1
+#google_analytics_tracking_id: UA-30241835-1
