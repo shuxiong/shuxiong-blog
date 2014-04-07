@@ -29,27 +29,20 @@ class Solution {
 public:
     ListNode *addTwoNumbers(ListNode *l1, ListNode *l2) {
         int g=0;
-        ListNode *ret=new ListNode(-1), *tail=ret;
-        while (l1!=NULL || l2!=NULL || g>0){
-            if (l1!=NULL){
-                g+=l1->val;
-                l1=l1->next;
-            }
-            if (l2!=NULL){
-                g+=l2->val;
-                l2=l2->next;
-            }
+        ListNode ret(-1), *tail=&ret;
+        while (l1 || l2 || g){
+            g+=((l1==NULL)?0:l1->val)+((l2==NULL)?0:l2->val);
+            if (l1!=NULL) l1=l1->next;
+            if (l2!=NULL) l2=l2->next;
             tail->next=new ListNode(g%10);
             tail=tail->next;
             g/=10;
         }
-        ListNode *tmp=ret;
-        ret=ret->next;
-        delete tmp;
-        return ret;
+        return ret.next;
     }
 };
 ```
+
 ##[Longest Substring Without Repeating Characters ](http://oj.leetcode.com/problems/two-sum/)##
 
 We use two pointer, *head* and *tail*.head and tail form a substring, which is guaranteed to be a legal string.
