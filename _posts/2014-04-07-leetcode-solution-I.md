@@ -11,6 +11,53 @@ categories: ['interview', 'leetcode']
 
 [TOC]
 
+##[Reverse Integer](http://oj.leetcode.com/problems/reverse-integer/)##
+
+Note:
+ 1. int32 may be not enough for storing the result.
+
+```cpp
+class Solution {
+public:
+    int reverse(int x) {
+        // Note: The Solution object is instantiated only once and is reused by each test case.
+        int ans=0;
+        while (x!=0){
+            ans=ans*10+x%10;
+            x/=10;
+        }
+        return ans;
+    }
+};
+```
+
+##[ZigZag Conversion](http://oj.leetcode.com/problems/zigzag-conversion/)##
+
+Nothing difficult
+
+```cpp
+class Solution {
+public:
+    string convert(string s, int nRows) {
+        // Start typing your C/C++ solution below
+        // DO NOT write int main() function
+        if (nRows==1) return s;
+        string ret="";
+        for (int i=0;i<s.size();i+=2*nRows-2) ret+=s[i];
+        for (int j=1;j<nRows-1;j++){
+            for (int i=j;i<s.size();i+=2*nRows-2){
+                ret+=s[i];
+                if (i+2*(nRows-j-1)<s.size()) ret+=s[i+2*(nRows-j-1)];
+            }
+        }
+        for (int i=nRows-1;i<s.size();i+=2*nRows-2) ret+=s[i];
+        return ret;
+    }
+};
+```
+
+##[Longest Palindromic Substring](http://oj.leetcode.com/problems/longest-palindromic-substring/) <font style="color:red">TODO</font>##
+
 ##[Add Two Numbers](http://oj.leetcode.com/problems/add-two-numbers/)##
 
 Well, it is nothing difficult.
@@ -29,20 +76,27 @@ class Solution {
 public:
     ListNode *addTwoNumbers(ListNode *l1, ListNode *l2) {
         int g=0;
-        ListNode ret(-1), *tail=&ret;
-        while (l1 || l2 || g){
-            g+=((l1==NULL)?0:l1->val)+((l2==NULL)?0:l2->val);
-            if (l1!=NULL) l1=l1->next;
-            if (l2!=NULL) l2=l2->next;
+        ListNode *ret=new ListNode(-1), *tail=ret;
+        while (l1!=NULL || l2!=NULL || g>0){
+            if (l1!=NULL){
+                g+=l1->val;
+                l1=l1->next;
+            }
+            if (l2!=NULL){
+                g+=l2->val;
+                l2=l2->next;
+            }
             tail->next=new ListNode(g%10);
             tail=tail->next;
             g/=10;
         }
-        return ret.next;
+        ListNode *tmp=ret;
+        ret=ret->next;
+        delete tmp;
+        return ret;
     }
 };
 ```
-
 ##[Longest Substring Without Repeating Characters ](http://oj.leetcode.com/problems/two-sum/)##
 
 We use two pointer, *head* and *tail*.head and tail form a substring, which is guaranteed to be a legal string.
