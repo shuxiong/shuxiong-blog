@@ -131,7 +131,50 @@ public:
 
 ##[Median of Two Sorted Arrays ](http://oj.leetcode.com/problems/median-of-two-sorted-arrays/)##
 
+Update at Apr. 16, 2014
+
+The problem can be converted to find Kth element in two sorted arrays.
+
+ 1. Find some specific element Ea in A, whose index is Ia. Acturally, we are doing binary search for Ia.
+ 2. Compute the related element Eb in B, whose index is Ib, which satifies (Ib+1)+(Ia+1)==k
+ 3. Set mx to the bigger one in Ea and Eb, there are 3 cases:
+
+     1. mx is smaller or equal to A[Ia+1] and B[Ib+1], so mx is the Kth element.
+     2. mx is bigger than A[Ia+1], which means B[Ib]>A[Ia+1], so we have to search in bigger interval for Ia.
+     3. Otherwise, we search in smaller interval for Ia.
+
+Time Complexity: O(logM)
+
+```cpp
+#include <algorithm>
+using std::max;
+
+class Solution {
+private:
+    int findK(int A[], int m, int B[], int n, int k){
+        if (k<=n && (m==0 || B[k-1]<=A[0])) return B[k-1];
+        if (k<=m && (n==0 || A[k-1]<=B[0])) return A[k-1];
+        int h=0, t=m-1;
+        while (h<=t){
+            int w=(h+t)/2, e=k-w-2;
+            if (e<0) t=w-1; else 
+            if (e>=n) h=w+1; else {
+                int mx=max(A[w], B[e]);
+                if ((w==m-1 || mx<=A[w+1]) && (e==n-1 || mx<=B[e+1])) return mx;
+                if ((w!=m-1 && mx>A[w+1])) h=w+1; else t=w-1;
+            }
+        }
+    }
+public:
+    double findMedianSortedArrays(int A[], int m, int B[], int n) {
+        if ((m+n)%2==0) return ((double)findK(A, m, B, n, (m+n)/2)+(double)findK(A, m, B, n, (m+n)/2+1))/2;
+            else return (double)findK(A, m, B, n, (m+n+1)/2);
+    }
+};
+```
+
 The problem is the same with finding Kth element in two sorted arrays.
+
  1. find some specific element Ea in A
  2. count how many elements are smaller in B comparing with Ea
  3. do recurion according to result of comparing total elements smaller than Ea in two arrays and K, which will be 3 cases.
