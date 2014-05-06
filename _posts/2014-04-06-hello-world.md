@@ -60,3 +60,15 @@ c[^ref-c]
   [1]: https://www.google.com.hk/images/srpr/logo11w.png
 ```
 
+##test latex##
+
+$$
+f[x][y] = \left\{
+  \begin{array}{}
+    false & : y=0 \ or\ x+y<=2 \\
+    y\&1 & : x=0 \\
+    !f[0][y] & : x=1 \\
+    !f[x-2][y+1] & : other\ cases
+  \end{array}
+\right.
+$$
