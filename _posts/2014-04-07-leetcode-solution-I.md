@@ -16,7 +16,7 @@ categories: ['interview', 'leetcode']
 Note:
  1. int32 may be not enough for storing the result.
 
-```cpp
+{% highlight cpp linenos %}
 class Solution {
 public:
     int reverse(int x) {
@@ -29,13 +29,13 @@ public:
         return ans;
     }
 };
-```
+{% endhighlight %}
 
 ##[ZigZag Conversion](http://oj.leetcode.com/problems/zigzag-conversion/)##
 
 Nothing difficult
 
-```cpp
+{% highlight cpp linenos %}
 class Solution {
 public:
     string convert(string s, int nRows) {
@@ -54,7 +54,7 @@ public:
         return ret;
     }
 };
-```
+{% endhighlight %}
 
 ##[Longest Palindromic Substring](http://oj.leetcode.com/problems/longest-palindromic-substring/) <font style="color:red">TODO</font>##
 
@@ -63,7 +63,7 @@ public:
 Well, it is nothing difficult.
 Note: if the two list is given high-bit-first-order, we can firstly reverse the lists, and do the addition, and reverse the result again.
 
-```cpp
+{% highlight cpp linenos %}
 /**
  * Definition for singly-linked list.
  * struct ListNode {
@@ -96,7 +96,7 @@ public:
         return ret;
     }
 };
-```
+{% endhighlight %}
 ##[Longest Substring Without Repeating Characters ](http://oj.leetcode.com/problems/two-sum/)##
 
 We use two pointer, *head* and *tail*.head and tail form a substring, which is guaranteed to be a legal string.
@@ -106,7 +106,7 @@ For each character in the given string, *head* and *tail* will pass exactly once
 Time complexity will be O(N).
 
 
-```cpp
+{% highlight cpp linenos %}
 class Solution {
 public:
     int lengthOfLongestSubstring(string s) {
@@ -127,7 +127,7 @@ public:
         return ans;
     }
 };
-```
+{% endhighlight %}
 
 ##[Median of Two Sorted Arrays ](http://oj.leetcode.com/problems/median-of-two-sorted-arrays/)##
 
@@ -145,7 +145,7 @@ The problem can be converted to find Kth element in two sorted arrays.
 
 Time Complexity: O(logM)
 
-```cpp
+{% highlight cpp linenos %}
 #include <algorithm>
 using std::max;
 
@@ -171,7 +171,7 @@ public:
             else return (double)findK(A, m, B, n, (m+n+1)/2);
     }
 };
-```
+{% endhighlight %}
 
 The problem is the same with finding Kth element in two sorted arrays.
 
@@ -183,7 +183,7 @@ Each recurion will decrease the scale of A in half, so we will perform step 1 lo
 
 Time Complexity: O(logN*logM)
 
-```cpp
+{% highlight cpp linenos %}
 #include <algorithm>
 using std::max;
 
@@ -226,7 +226,7 @@ public:
             else return (double)findK(A, m, B, n, (m+n+1)/2);
     }
 };
-```
+{% endhighlight %}
 
 ##[Two Sum](http://oj.leetcode.com/problems/two-sum/)##
 
@@ -241,7 +241,7 @@ Note that there is guaranteed to exist one solution, so the two pointers will ne
 
 Time Complexity: O(nlogn), sort the array(nlogn) & scan the array(n)
 
-```cpp
+{% highlight cpp linenos %}
 #include <vector>
 #include <algorithm>
 #include <utility>
@@ -274,4 +274,4 @@ public:
         return ans;
     }
 };
-```
+{% endhighlight %}

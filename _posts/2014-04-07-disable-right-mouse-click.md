@@ -11,7 +11,7 @@ categories: ['web']
 
 Sometimes, we want to disable right mouse click, so we can achieve this by simplely adding a few lines of js.
 
-```javascript
+{% highlight javascript linenos %}
 <!-- disable_right_click.html BEGIN -->
 <script type="text/javascript">
     document.body.oncontextmenu=function(){return false;};
@@ -22,4 +22,4 @@ Sometimes, we want to disable right mouse click, so we can achieve this by simpl
     document.body.oncopy=function(){document.select.empty();};
 </script>
 <!-- disable_right_click.html END -->
-```
+{% endhighlight %}
