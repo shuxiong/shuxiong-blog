@@ -72,3 +72,5 @@ f[x][y] = \left\{
   \end{array}
 \right.
 $$
+
+a great reference can be found [here](http://en.wikibooks.org/wiki/LaTeX/Advanced_Mathematics).
