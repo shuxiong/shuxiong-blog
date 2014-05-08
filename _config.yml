@@ -18,12 +18,12 @@ paginate: 1 #//the number of post per page
 
 permalink: pretty
 #markdown: rdiscount
-#markdown: kramdown
-#kramdown:
-#    input: GFM
-markdown: redcarpet
-redcarpet:
-    extensions: [tables]
+markdown: kramdown
+kramdown:
+    input: GFM
+#markdown: redcarpet
+#redcarpet:
+#    extensions: [tables]
 pygments: true # default python pygments have been replaced by pygments.rb
 
 # ----------------------- #
