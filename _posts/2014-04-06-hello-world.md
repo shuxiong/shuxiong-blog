@@ -74,3 +74,17 @@ f[x][y] = \left\{
 $$
 
 a great reference can be found [here](http://en.wikibooks.org/wiki/LaTeX/Advanced_Mathematics).
+
+##test single line latex##
+
+abc
+
+对于当前的$a$,$b$，如果$b=0$，那么$a$就是最大公约数，可以令$x=1$，$y=0$
+
+否则，我们已经计算了$a^\prime$，$b^\prime$，$x^\prime$，$y^\prime$，并且$a^\prime x^\prime +b^\prime y^\prime =gcd(a,b)$
+
+由于$a^\prime=b$，$b^\prime=a-\lfloor\frac{\displaystyle a}{\displaystyle b}\rfloor$
+且$ax+by=gcd(a,b)$，代入可以求解得
+
+$x=y^\prime$，$y=x^\prime-\lfloor\frac{\displaystyle a}{\displaystyle b}\rfloor y^\prime$
+
